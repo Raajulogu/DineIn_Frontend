@@ -1,0 +1,39 @@
+.order-container{
+    background: transparent;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.order-box{
+    background-color: white;
+    background-image: url("https://i.pinimg.com/736x/e3/ac/19/e3ac19ffba76847ab2b20ce6492547a1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width:40%;
+    max-height: 650px;
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5%;
+    overflow: auto;
+}
+.order-box::-webkit-scrollbar{
+    display: none;
+}
+.order-head{
+    display: flex;
+    justify-content: center;
+    margin: 2%;
+}
+.orders{
+    width: 100%;
+    padding:3% 0% 1% 5%;
+    border-bottom: 1px black dotted;
+}
+.order-nothing{
+    display: flex;
+    justify-content: center;
+    margin: 10% 0%;
+}

@@ -1,0 +1,88 @@
+.base-container{
+    background-color: rgb(219, 217, 56);
+    height:11vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width:100%;
+    top:0;
+}
+@media only screen and (max-width: 820px){
+    .base-container{
+        height:25vh;
+    }
+}
+.head-logo{
+    display: flex;
+    flex-direction: row
+}
+#logo{
+    height:90px;
+    width:100px;
+    cursor: pointer;
+}
+.shop-name{
+    cursor: pointer;
+}
+.head-button{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+.carts{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right: 10%;
+    cursor: pointer;
+}
+.history-btn{
+    margin-right: 20%;
+    cursor: pointer;
+}
+.home-btn{
+    margin-right: 10%;
+    cursor: pointer;
+}
+@media only screen and (max-width: 600px) {
+    .head-button{
+        display: none;
+    }
+}
+@media only screen and (min-width: 600px){
+    .nav{
+        display: none;
+    }
+}
+.cartCount{
+    color:white;
+    background-color: rgb(211, 24, 24);
+    border-radius:100%;
+    padding: 0 2%;
+    position: absolute;
+    margin-left: 4%;
+}
+.cart-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding:5%;
+}
+.cart-items{
+    border-bottom: 1px solid black;
+    width:100%;
+    padding-left: 10%;
+}
+.cart-btns{
+    width:100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.none{
+    display: none;
+}
