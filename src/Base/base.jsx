@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import HistoryIcon from '@mui/icons-material/History';
 import HomeIcon from '@mui/icons-material/Home';
 
-const Base = ({cart,setCart}) => {
+const Base = ({cart,setCart,setAmount}) => {
   let [log,setLog]=useState(false);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   let navigate =useNavigate()
@@ -87,6 +87,7 @@ const Base = ({cart,setCart}) => {
         {cart.length ? <Cart
         cart={cart}
         setCart={setCart}
+        setAmount={setAmount}
         />:
         <Typography sx={{ p: 2 }}>Please add atleast one item to cart for view cart items</Typography>}
       </Popover>
@@ -143,7 +144,7 @@ const Base = ({cart,setCart}) => {
   )
 }
 
-const Cart = ({cart,setCart}) => {
+const Cart = ({cart,setCart,setAmount}) => {
   let total=0;
   let temp=[...cart]
   let navigate=useNavigate()
@@ -186,7 +187,9 @@ const Cart = ({cart,setCart}) => {
         "x-auth":token
       }
     });
-    let data=await res.json();
+    setAmount(total)
+    await res.json();
+    navigate("/payment")
     setCart([]);
     }
   }

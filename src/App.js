@@ -5,9 +5,13 @@ import {  useState } from 'react';
 import Login from './Components/Login';
 import SignUp from './Components/SignUp';
 import Orders from './Components/Orders';
+import Payment from './Components/Payment';
 
 function App() {
   let [cart,setCart]=useState([]);
+
+  let [amount,setAmount]=useState("none");
+  
   return (
     <div className="App container-fluid">
 
@@ -16,6 +20,7 @@ function App() {
         element={<Dashboard
         cart={cart}
         setCart={setCart}
+        setAmount={setAmount}
         />}
         />
         <Route path="/login"
@@ -28,6 +33,14 @@ function App() {
          element={<Orders
           cart={cart}
           setCart={setCart}
+          setAmount={setAmount}
+         />}
+        />
+        <Route path="/payment"
+         element={<Payment
+          cart={cart}
+          setCart={setCart}
+          amount={amount}
          />}
         />
       </Routes>

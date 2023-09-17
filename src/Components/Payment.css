@@ -1,0 +1,47 @@
+.payment-container{
+    min-width:100vw;
+    min-height:100vh;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(80, 81, 82, 0.671);
+    margin-bottom: 100px;
+}
+.payment-box{
+    min-width:35%;
+    min-height:40%;
+    background-image: url("https://sumatosoft.com/wp-content/uploads/2022/03/5da6e25b33194a2b4d423c98_How-to-Build-an-Upscale-Food-Delivery-App.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.payment-head{
+    width:100%;
+    padding:2%;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(238, 95, 28, 0.897);
+}
+.amount-box{
+    width:40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding:1%;
+    background-color: transparent;
+    color: white;
+}
+.payment-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width:100%;
+    margin: 4%;
+}
+.payment-input{
+    width:50%;
+    background-color: white;
+}

@@ -3,8 +3,9 @@ import Base from '../Base/base'
 import foods from '../Data/data.js'
 import "./Dashboard.css"
 import { Button, TextField } from '@mui/material'
+import Payment from './Payment'
 
-const Dashboard = ({cart,setCart}) => {
+const Dashboard = ({cart,setCart,setAmount}) => {
   let [finder,setFinder]=useState("");
 
   function addcart({name,price,count}){
@@ -25,6 +26,7 @@ const Dashboard = ({cart,setCart}) => {
     <div>
         
         <div className='main-body'>
+          
           <div className='search-container row'>
           <TextField
           className='search-box'
@@ -86,6 +88,7 @@ const Dashboard = ({cart,setCart}) => {
         <Base
         cart={cart}
         setCart={setCart}
+        setAmount={setAmount}
         />
     </div>
   )
