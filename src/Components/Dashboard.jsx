@@ -12,14 +12,14 @@ const Dashboard = ({cart,setCart,setAmount}) => {
     let temp=cart.length?[...cart]:[];
     temp.map((val)=>{
       if(val.name===name){
-        val.count=count;
-        val.price=count*price
-        name=0
+        val.count=count+val.count;
+        val.price=val.count*price;
+        name=0;
       }
     })
     if(name!==0){
       temp.push({name:name,count:count,price:count*price})
-      setCart(temp)
+      setCart([...temp])
     }
   }
   return (

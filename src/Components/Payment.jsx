@@ -10,6 +10,7 @@ const Payment = ({ cart, setCart, amount }) => {
   //Snackbar
   const [open, setOpen] = React.useState(false);
   const [type, setType] = useState("card");
+
   const handleClick = () => {
     setOpen(true);
   };
@@ -40,6 +41,7 @@ const Payment = ({ cart, setCart, amount }) => {
             handleClick={handleClick}
             amount={amount}
             setType={setType}
+            setCart={setCart}
           />
         )}
       </div>
@@ -141,7 +143,7 @@ function CardPayment({ amount, handleClick, setType }) {
   );
 }
 
-function ScanPay({ amount, handleClick, setType }) {
+function ScanPay({ amount, handleClick, setType,setCart,cart }) {
   let [qrCode, setQrCode] = useState("");
   let [url, setURL] = useState("");
   useEffect(() => {
@@ -150,7 +152,7 @@ function ScanPay({ amount, handleClick, setType }) {
         user: localStorage.getItem("token"),
         price: amount,
         app: "DineIn",
-        Product: ["dine", "dine"],
+        Product: ["Chicken Biryani", "Fish Biryani", "Plain Dosa"],
       };
       try {
         const response = await axios.post(
@@ -170,10 +172,14 @@ function ScanPay({ amount, handleClick, setType }) {
   }, []);
 
   async function Pay() {
+    let prod=[]
+    cart.map((val)=>{
+      prod.push(val.name);
+    })
     let data = {
       user: localStorage.getItem("token"),
       price: amount,
-      Product: ["dine", "dine"],
+      Product: [...prod],
     };
     try {
       const response = await axios.post(
@@ -181,6 +187,7 @@ function ScanPay({ amount, handleClick, setType }) {
         data
       );
       handleClick();
+      setCart([])
       alert("Payment Completed Successfully");
     } catch (error) {
       console.error("Error In Fetching Data:", error);
@@ -192,12 +199,8 @@ function ScanPay({ amount, handleClick, setType }) {
         <img src={qrCode} alt="QR Code" />
       </div>
       <div className="payment_btn">
-        <Button
-        variant="contained"
-        >
-          <a
-          className="smart-pay"
-          href={url} target="_blank" onClick={Pay}>
+        <Button variant="contained">
+          <a className="smart-pay" href={url} target="_blank" onClick={Pay}>
             Pay with SmartPay
           </a>
         </Button>

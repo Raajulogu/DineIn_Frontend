@@ -11,7 +11,7 @@ function App() {
   let [cart,setCart]=useState([]);
 
   let [amount,setAmount]=useState("none");
-  
+  console.log(cart,amount)
   return (
     <div className="App container-fluid">
 
