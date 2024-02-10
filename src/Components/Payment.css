@@ -45,3 +45,23 @@
     width:50%;
     background-color: white;
 }
+.btns{
+    display: flex;
+    gap:20px
+}
+.payment_btn{
+    display: none;
+    
+}
+.smart-pay{
+    color: white;
+}
+
+@media only screen and (max-width: 812px) {
+    .payment_btn{
+        display: block;
+    }
+    .qr-code{
+        display: none;
+    }
+  }
