@@ -147,9 +147,9 @@ function ScanPay({ amount, handleClick, setType,setCart,cart }) {
   let [url, setURL] = useState("");
   useEffect(() => {
     let Product=[];
-    cart.map((val)=>{
+    for(let val in cart){
       Product.push(val.name);
-    })
+    }
     const generateQRCode = async () => {
       let data = {
         user: localStorage.getItem("token"),
