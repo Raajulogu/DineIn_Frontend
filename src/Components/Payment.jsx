@@ -41,6 +41,7 @@ const Payment = ({ cart, setCart, amount }) => {
             amount={amount}
             setType={setType}
             setCart={setCart}
+            cart={cart}
           />
         )}
       </div>
@@ -147,9 +148,9 @@ function ScanPay({ amount, handleClick, setType,setCart,cart }) {
   let [url, setURL] = useState("");
   useEffect(() => {
     let Product=[];
-    for(let val in cart){
+    cart.map((val)=>{
       Product.push(val.name);
-    }
+    })
     const generateQRCode = async () => {
       let data = {
         user: localStorage.getItem("token"),
