@@ -22,7 +22,6 @@ const Payment = ({ cart, setCart, amount }) => {
 
     setOpen(false);
   };
-  console.log(cart, amount);
 
   return (
     <div>
@@ -147,12 +146,16 @@ function ScanPay({ amount, handleClick, setType,setCart,cart }) {
   let [qrCode, setQrCode] = useState("");
   let [url, setURL] = useState("");
   useEffect(() => {
+    let Product=[];
+    cart.map((val)=>{
+      Product.push(val.name);
+    })
     const generateQRCode = async () => {
       let data = {
         user: localStorage.getItem("token"),
         price: amount,
         app: "DineIn",
-        Product: ["Chicken Biryani", "Fish Biryani", "Plain Dosa"],
+        Product: Product,
       };
       try {
         const response = await axios.post(
